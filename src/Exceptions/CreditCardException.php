@@ -1,6 +1,6 @@
 <?php
 
-namespace LVR\CreditCard\Exceptions;
+namespace Cebugle\CreditCard\Exceptions;
 
 class CreditCardException extends \Exception
 {

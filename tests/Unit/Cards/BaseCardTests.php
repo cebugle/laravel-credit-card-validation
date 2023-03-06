@@ -1,24 +1,24 @@
 <?php
 
-namespace LVR\CreditCard\Tests\Unit\Cards;
+namespace Cebugle\CreditCard\Tests\Unit\Cards;
 
 use Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull;
 use Illuminate\Foundation\Http\Middleware\TrimStrings;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use LVR\CreditCard\CardNumber;
-use LVR\CreditCard\Exceptions\CreditCardCharactersException;
-use LVR\CreditCard\Exceptions\CreditCardChecksumException;
-use LVR\CreditCard\Exceptions\CreditCardException;
-use LVR\CreditCard\Exceptions\CreditCardLengthException;
-use LVR\CreditCard\Exceptions\CreditCardPatternException;
-use LVR\CreditCard\Tests\TestCase;
+use Cebugle\CreditCard\CardNumber;
+use Cebugle\CreditCard\Exceptions\CreditCardCharactersException;
+use Cebugle\CreditCard\Exceptions\CreditCardChecksumException;
+use Cebugle\CreditCard\Exceptions\CreditCardException;
+use Cebugle\CreditCard\Exceptions\CreditCardLengthException;
+use Cebugle\CreditCard\Exceptions\CreditCardPatternException;
+use Cebugle\CreditCard\Tests\TestCase;
 
 abstract class BaseCardTests extends TestCase
 {
     /**
-     * @var \LVR\CreditCard\Contracts\CreditCard
+     * @var \Cebugle\CreditCard\Contracts\CreditCard
      */
     public $instance;
 

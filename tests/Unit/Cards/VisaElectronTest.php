@@ -1,9 +1,9 @@
 <?php
 
-namespace LVR\CreditCard\Tests\Unit\Cards;
+namespace Cebugle\CreditCard\Tests\Unit\Cards;
 
 use Illuminate\Support\Collection;
-use LVR\CreditCard\Cards\VisaElectron;
+use Cebugle\CreditCard\Cards\VisaElectron;
 
 class VisaElectronTest extends BaseCardTests
 {

@@ -1,13 +1,13 @@
 <?php
 
-namespace LVR\CreditCard\Tests\Unit;
+namespace Cebugle\CreditCard\Tests\Unit;
 
 use Illuminate\Support\Facades\Validator;
-use LVR\CreditCard\CardCvc;
-use LVR\CreditCard\Cards\Card;
-use LVR\CreditCard\Tests\TestCase;
-use LVR\CreditCard\Tests\Unit\Cards\AmericanExpressTest;
-use LVR\CreditCard\Tests\Unit\Cards\VisaTest;
+use Cebugle\CreditCard\CardCvc;
+use Cebugle\CreditCard\Cards\Card;
+use Cebugle\CreditCard\Tests\TestCase;
+use Cebugle\CreditCard\Tests\Unit\Cards\AmericanExpressTest;
+use Cebugle\CreditCard\Tests\Unit\Cards\VisaTest;
 
 class CardCvcTest extends TestCase
 {

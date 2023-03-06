@@ -1,6 +1,6 @@
 <?php
 
-namespace LVR\CreditCard\Tests;
+namespace Cebugle\CreditCard\Tests;
 
 class TestCase extends \Orchestra\Testbench\TestCase
 {

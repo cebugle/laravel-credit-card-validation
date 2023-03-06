@@ -1,11 +1,11 @@
 <?php
 
-namespace LVR\CreditCard;
+namespace Cebugle\CreditCard;
 
 use Illuminate\Contracts\Validation\Rule;
-use LVR\CreditCard\Exceptions\CreditCardChecksumException;
-use LVR\CreditCard\Exceptions\CreditCardException;
-use LVR\CreditCard\Exceptions\CreditCardLengthException;
+use Cebugle\CreditCard\Exceptions\CreditCardChecksumException;
+use Cebugle\CreditCard\Exceptions\CreditCardException;
+use Cebugle\CreditCard\Exceptions\CreditCardLengthException;
 
 class CardNumber implements Rule
 {

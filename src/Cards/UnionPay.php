@@ -1,8 +1,8 @@
 <?php
 
-namespace LVR\CreditCard\Cards;
+namespace Cebugle\CreditCard\Cards;
 
-use LVR\CreditCard\Contracts\CreditCard;
+use Cebugle\CreditCard\Contracts\CreditCard;
 
 class UnionPay extends Card implements CreditCard
 {

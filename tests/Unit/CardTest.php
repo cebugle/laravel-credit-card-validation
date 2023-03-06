@@ -1,12 +1,12 @@
 <?php
 
-namespace LVR\CreditCard\Tests\Unit;
+namespace Cebugle\CreditCard\Tests\Unit;
 
-use LVR\CreditCard\Cards\Card;
-use LVR\CreditCard\Exceptions\CreditCardCharactersException;
-use LVR\CreditCard\Exceptions\CreditCardException;
-use LVR\CreditCard\Factory;
-use LVR\CreditCard\Tests\TestCase;
+use Cebugle\CreditCard\Cards\Card;
+use Cebugle\CreditCard\Exceptions\CreditCardCharactersException;
+use Cebugle\CreditCard\Exceptions\CreditCardException;
+use Cebugle\CreditCard\Factory;
+use Cebugle\CreditCard\Tests\TestCase;
 
 class CardTest extends TestCase
 {

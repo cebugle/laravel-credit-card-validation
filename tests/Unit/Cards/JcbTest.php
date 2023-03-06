@@ -1,9 +1,9 @@
 <?php
 
-namespace LVR\CreditCard\Tests\Unit\Cards;
+namespace Cebugle\CreditCard\Tests\Unit\Cards;
 
 use Illuminate\Support\Collection;
-use LVR\CreditCard\Cards\Jcb;
+use Cebugle\CreditCard\Cards\Jcb;
 
 class JcbTest extends BaseCardTests
 {

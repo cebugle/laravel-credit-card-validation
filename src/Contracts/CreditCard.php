@@ -1,6 +1,6 @@
 <?php
 
-namespace LVR\CreditCard\Contracts;
+namespace Cebugle\CreditCard\Contracts;
 
 interface CreditCard
 {

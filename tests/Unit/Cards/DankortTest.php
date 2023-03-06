@@ -1,9 +1,9 @@
 <?php
 
-namespace LVR\CreditCard\Tests\Unit\Cards;
+namespace Cebugle\CreditCard\Tests\Unit\Cards;
 
 use Illuminate\Support\Collection;
-use LVR\CreditCard\Cards\Dankort;
+use Cebugle\CreditCard\Cards\Dankort;
 
 class DankortTest extends BaseCardTests
 {

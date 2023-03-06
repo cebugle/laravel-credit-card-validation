@@ -1,6 +1,6 @@
 <?php
 
-namespace LVR\CreditCard;
+namespace Cebugle\CreditCard;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Rule;

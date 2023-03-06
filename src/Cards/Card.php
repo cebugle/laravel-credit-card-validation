@@ -1,15 +1,15 @@
 <?php
 
-namespace LVR\CreditCard\Cards;
+namespace Cebugle\CreditCard\Cards;
 
-use LVR\CreditCard\Exceptions\CreditCardCharactersException;
-use LVR\CreditCard\Exceptions\CreditCardChecksumException;
-use LVR\CreditCard\Exceptions\CreditCardCvcException;
-use LVR\CreditCard\Exceptions\CreditCardException;
-use LVR\CreditCard\Exceptions\CreditCardLengthException;
-use LVR\CreditCard\Exceptions\CreditCardNameException;
-use LVR\CreditCard\Exceptions\CreditCardPatternException;
-use LVR\CreditCard\Exceptions\CreditCardTypeException;
+use Cebugle\CreditCard\Exceptions\CreditCardCharactersException;
+use Cebugle\CreditCard\Exceptions\CreditCardChecksumException;
+use Cebugle\CreditCard\Exceptions\CreditCardCvcException;
+use Cebugle\CreditCard\Exceptions\CreditCardException;
+use Cebugle\CreditCard\Exceptions\CreditCardLengthException;
+use Cebugle\CreditCard\Exceptions\CreditCardNameException;
+use Cebugle\CreditCard\Exceptions\CreditCardPatternException;
+use Cebugle\CreditCard\Exceptions\CreditCardTypeException;
 
 abstract class Card
 {
@@ -72,7 +72,7 @@ abstract class Card
      *
      * @param  string  $card_number
      *
-     * @throws \LVR\CreditCard\Exceptions\CreditCardException
+     * @throws \Cebugle\CreditCard\Exceptions\CreditCardException
      */
     public function __construct(string $card_number = '')
     {
@@ -87,7 +87,7 @@ abstract class Card
      * @param  string  $card_number
      * @return $this
      *
-     * @throws \LVR\CreditCard\Exceptions\CreditCardPatternException
+     * @throws \Cebugle\CreditCard\Exceptions\CreditCardPatternException
      */
     public function setCardNumber(string $card_number)
     {
@@ -107,10 +107,10 @@ abstract class Card
     /**
      * @return bool
      *
-     * @throws \LVR\CreditCard\Exceptions\CreditCardChecksumException
-     * @throws \LVR\CreditCard\Exceptions\CreditCardCharactersException
-     * @throws \LVR\CreditCard\Exceptions\CreditCardException
-     * @throws \LVR\CreditCard\Exceptions\CreditCardLengthException
+     * @throws \Cebugle\CreditCard\Exceptions\CreditCardChecksumException
+     * @throws \Cebugle\CreditCard\Exceptions\CreditCardCharactersException
+     * @throws \Cebugle\CreditCard\Exceptions\CreditCardException
+     * @throws \Cebugle\CreditCard\Exceptions\CreditCardLengthException
      */
     public function isValidCardNumber()
     {
@@ -188,7 +188,7 @@ abstract class Card
     }
 
     /**
-     * @throws \LVR\CreditCard\Exceptions\CreditCardException
+     * @throws \Cebugle\CreditCard\Exceptions\CreditCardException
      */
     protected function checkImplementation()
     {

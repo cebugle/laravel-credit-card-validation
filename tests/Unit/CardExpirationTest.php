@@ -1,14 +1,14 @@
 <?php
 
-namespace LVR\CreditCard\Tests\Unit;
+namespace Cebugle\CreditCard\Tests\Unit;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Validator;
-use LVR\CreditCard\CardExpirationDate;
-use LVR\CreditCard\CardExpirationMonth;
-use LVR\CreditCard\CardExpirationYear;
-use LVR\CreditCard\ExpirationDateValidator;
-use LVR\CreditCard\Tests\TestCase;
+use Cebugle\CreditCard\CardExpirationDate;
+use Cebugle\CreditCard\CardExpirationMonth;
+use Cebugle\CreditCard\CardExpirationYear;
+use Cebugle\CreditCard\ExpirationDateValidator;
+use Cebugle\CreditCard\Tests\TestCase;
 
 class CardExpirationTest extends TestCase
 {

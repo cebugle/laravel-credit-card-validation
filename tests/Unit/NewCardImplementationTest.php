@@ -1,15 +1,15 @@
 <?php
 
-namespace LVR\CreditCard\Tests\Unit;
+namespace Cebugle\CreditCard\Tests\Unit;
 
-use LVR\CreditCard\Cards\Card;
-use LVR\CreditCard\Exceptions\CreditCardChecksumException;
-use LVR\CreditCard\Exceptions\CreditCardCvcException;
-use LVR\CreditCard\Exceptions\CreditCardLengthException;
-use LVR\CreditCard\Exceptions\CreditCardNameException;
-use LVR\CreditCard\Exceptions\CreditCardPatternException;
-use LVR\CreditCard\Exceptions\CreditCardTypeException;
-use LVR\CreditCard\Tests\TestCase;
+use Cebugle\CreditCard\Cards\Card;
+use Cebugle\CreditCard\Exceptions\CreditCardChecksumException;
+use Cebugle\CreditCard\Exceptions\CreditCardCvcException;
+use Cebugle\CreditCard\Exceptions\CreditCardLengthException;
+use Cebugle\CreditCard\Exceptions\CreditCardNameException;
+use Cebugle\CreditCard\Exceptions\CreditCardPatternException;
+use Cebugle\CreditCard\Exceptions\CreditCardTypeException;
+use Cebugle\CreditCard\Tests\TestCase;
 
 class NewCardImplementationTest extends TestCase
 {

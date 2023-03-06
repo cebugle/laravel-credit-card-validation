@@ -1,22 +1,22 @@
 <?php
 
-namespace LVR\CreditCard;
+namespace Cebugle\CreditCard;
 
-use LVR\CreditCard\Cards\AmericanExpress;
-use LVR\CreditCard\Cards\Dankort;
-use LVR\CreditCard\Cards\DinersClub;
-use LVR\CreditCard\Cards\Discovery;
-use LVR\CreditCard\Cards\Forbrugsforeningen;
-use LVR\CreditCard\Cards\Hipercard;
-use LVR\CreditCard\Cards\Jcb;
-use LVR\CreditCard\Cards\Maestro;
-use LVR\CreditCard\Cards\Mastercard;
-use LVR\CreditCard\Cards\Mir;
-use LVR\CreditCard\Cards\Troy;
-use LVR\CreditCard\Cards\UnionPay;
-use LVR\CreditCard\Cards\Visa;
-use LVR\CreditCard\Cards\VisaElectron;
-use LVR\CreditCard\Exceptions\CreditCardException;
+use Cebugle\CreditCard\Cards\AmericanExpress;
+use Cebugle\CreditCard\Cards\Dankort;
+use Cebugle\CreditCard\Cards\DinersClub;
+use Cebugle\CreditCard\Cards\Discovery;
+use Cebugle\CreditCard\Cards\Forbrugsforeningen;
+use Cebugle\CreditCard\Cards\Hipercard;
+use Cebugle\CreditCard\Cards\Jcb;
+use Cebugle\CreditCard\Cards\Maestro;
+use Cebugle\CreditCard\Cards\Mastercard;
+use Cebugle\CreditCard\Cards\Mir;
+use Cebugle\CreditCard\Cards\Troy;
+use Cebugle\CreditCard\Cards\UnionPay;
+use Cebugle\CreditCard\Cards\Visa;
+use Cebugle\CreditCard\Cards\VisaElectron;
+use Cebugle\CreditCard\Exceptions\CreditCardException;
 
 class Factory
 {
@@ -41,9 +41,9 @@ class Factory
 
     /**
      * @param  string|mixed  $card_number
-     * @return \LVR\CreditCard\Cards\Card
+     * @return \Cebugle\CreditCard\Cards\Card
      *
-     * @throws \LVR\CreditCard\Exceptions\CreditCardException
+     * @throws \Cebugle\CreditCard\Exceptions\CreditCardException
      */
     public static function makeFromNumber($card_number)
     {
@@ -54,7 +54,7 @@ class Factory
      * @param  string|mixed  $card_number
      * @return mixed
      *
-     * @throws \LVR\CreditCard\Exceptions\CreditCardException
+     * @throws \Cebugle\CreditCard\Exceptions\CreditCardException
      */
     protected static function determineCardByNumber($card_number)
     {
