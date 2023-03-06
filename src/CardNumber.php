@@ -2,53 +2,33 @@
 
 namespace Cebugle\CreditCard;
 
-use Illuminate\Contracts\Validation\Rule;
-use Cebugle\CreditCard\Exceptions\CreditCardChecksumException;
+use Closure;
+use Illuminate\Contracts\Validation\ValidationRule;
 use Cebugle\CreditCard\Exceptions\CreditCardException;
 use Cebugle\CreditCard\Exceptions\CreditCardLengthException;
+use Cebugle\CreditCard\Exceptions\CreditCardChecksumException;
 
-class CardNumber implements Rule
+class CardNumber implements ValidationRule
 {
     const MSG_CARD_INVALID = 'validation.credit_card.card_invalid';
     const MSG_CARD_PATTER_INVALID = 'validation.credit_card.card_pattern_invalid';
     const MSG_CARD_LENGTH_INVALID = 'validation.credit_card.card_length_invalid';
     const MSG_CARD_CHECKSUM_INVALID = 'validation.credit_card.card_checksum_invalid';
 
-    protected $message = '';
-
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @return bool
-     */
-    public function passes($attribute, $value)
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         try {
-            return Factory::makeFromNumber($value)->isValidCardNumber();
+            $response = Factory::makeFromNumber($value)->isValidCardNumber();
+
+            if ($response === false) {
+                $fail(self::MSG_CARD_INVALID)->translate();
+            }
         } catch (CreditCardLengthException $ex) {
-            $this->message = self::MSG_CARD_LENGTH_INVALID;
-
-            return false;
+            $fail(self::MSG_CARD_LENGTH_INVALID)->translate();
         } catch (CreditCardChecksumException $ex) {
-            $this->message = self::MSG_CARD_CHECKSUM_INVALID;
-
-            return false;
+            $fail(self::MSG_CARD_CHECKSUM_INVALID)->translate();
         } catch (CreditCardException $ex) {
-            $this->message = self::MSG_CARD_INVALID;
-
-            return false;
+            $fail(self::MSG_CARD_INVALID)->translate();
         }
-    }
-
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
-    public function message()
-    {
-        return trans($this->message);
     }
 }

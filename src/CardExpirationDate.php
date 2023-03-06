@@ -2,42 +2,27 @@
 
 namespace Cebugle\CreditCard;
 
+use Closure;
+use Exception;
 use Carbon\Carbon;
-use Illuminate\Contracts\Validation\Rule;
+use InvalidArgumentException;
+use Illuminate\Contracts\Validation\ValidationRule;
 
-class CardExpirationDate implements Rule
+class CardExpirationDate implements ValidationRule
 {
     const MSG_CARD_EXPIRATION_DATE_INVALID = 'validation.credit_card.card_expiration_date_invalid';
     const MSG_CARD_EXPIRATION_DATE_FORMAT_INVALID = 'validation.credit_card.card_expiration_date_format_invalid';
-
-    protected $message;
-
-    /**
-     * Date field format.
-     *
-     * @var string
-     */
-    protected $format;
 
     /**
      * CardExpirationDate constructor.
      *
      * @param  string  $format  Date format
      */
-    public function __construct(string $format)
-    {
-        $this->message = static::MSG_CARD_EXPIRATION_DATE_INVALID;
-        $this->format = $format;
-    }
+    public function __construct(
+        protected string $format
+    ) {}
 
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @return bool
-     */
-    public function passes($attribute, $value)
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         try {
             // This can throw Invalid Date Exception if format is not supported.
@@ -45,26 +30,16 @@ class CardExpirationDate implements Rule
 
             $date = Carbon::createFromFormat($this->format, $value);
 
-            return (new ExpirationDateValidator($date->year, $date->month))
+            $response = (new ExpirationDateValidator($date->year, $date->month))
                 ->isValid();
-        } catch (\InvalidArgumentException $ex) {
-            $this->message = static::MSG_CARD_EXPIRATION_DATE_FORMAT_INVALID;
 
-            return false;
-        } catch (\Exception $ex) {
-            $this->message = static::MSG_CARD_EXPIRATION_DATE_INVALID;
-
-            return false;
+            if ($response === false) {
+                $fail(static::MSG_CARD_EXPIRATION_DATE_INVALID)->translate();
+            }
+        } catch (InvalidArgumentException $ex) {
+            $fail(static::MSG_CARD_EXPIRATION_DATE_FORMAT_INVALID)->translate();
+        } catch (Exception $ex) {
+            $fail(static::MSG_CARD_EXPIRATION_DATE_INVALID)->translate();
         }
-    }
-
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
-    public function message()
-    {
-        return trans($this->message);
     }
 }

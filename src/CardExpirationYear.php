@@ -2,49 +2,29 @@
 
 namespace Cebugle\CreditCard;
 
-use Illuminate\Contracts\Validation\Rule;
+use Closure;
+use Illuminate\Contracts\Validation\ValidationRule;
 
-class CardExpirationYear implements Rule
+class CardExpirationYear implements ValidationRule
 {
     const MSG_CARD_EXPIRATION_YEAR_INVALID = 'validation.credit_card.card_expiration_year_invalid';
-
-    /**
-     * Month field name.
-     *
-     * @var string
-     */
-    protected $month;
 
     /**
      * CardExpirationYear constructor.
      *
      * @param  string  $month
      */
-    public function __construct($month)
-    {
-        $this->month = $month;
-    }
+    public function __construct(
+        protected string $month
+    ) {}
 
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @return bool
-     */
-    public function passes($attribute, $value)
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        return (new ExpirationDateValidator($value, $this->month))
+        $response = (new ExpirationDateValidator($value, $this->month))
             ->isValid();
-    }
 
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
-    public function message()
-    {
-        return trans(static::MSG_CARD_EXPIRATION_YEAR_INVALID);
+        if ($response === false) {
+            $fail(static::MSG_CARD_EXPIRATION_YEAR_INVALID)->translate();
+        }
     }
 }

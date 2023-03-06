@@ -2,50 +2,26 @@
 
 namespace Cebugle\CreditCard;
 
-use Illuminate\Contracts\Validation\Rule;
+use Closure;
+use Exception;
+use Illuminate\Contracts\Validation\ValidationRule;
 
-class CardCvc implements Rule
+class CardCvc implements ValidationRule
 {
-    const MSG_CARD_CVC_INVALID = 'validation.credit_card.card_cvc_invalid';
+    public function __construct(
+        protected string $cardNumber
+    ) {}
 
-    protected $message;
-
-    /**
-     * Credit card number.
-     *
-     * @var string
-     */
-    protected $card_number;
-
-    public function __construct($card_number)
-    {
-        $this->message = static::MSG_CARD_CVC_INVALID;
-        $this->card_number = $card_number;
-    }
-
-    /**
-     * Determine if the validation rule passes.
-     *
-     * @param  string  $attribute
-     * @param  mixed  $value
-     * @return bool
-     */
-    public function passes($attribute, $value)
+    public function validate(string $attribute, mixed $value, Closure $fail): void
     {
         try {
-            return Factory::makeFromNumber($this->card_number)->isValidCvc($value);
-        } catch (\Exception $ex) {
-            return false;
-        }
-    }
+            $response = Factory::makeFromNumber($this->cardNumber)->isValidCvc($value);
 
-    /**
-     * Get the validation error message.
-     *
-     * @return string
-     */
-    public function message()
-    {
-        return trans($this->message);
+            if ($response === false) {
+                $fail('validation.credit_card.card_cvc_invalid')->translate();
+            }
+        } catch (Exception $ex) {
+            $fail('validation.credit_card.card_cvc_invalid')->translate();
+        }
     }
 }
