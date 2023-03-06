@@ -18,8 +18,8 @@ This rule will validate that a given credit card **number**, **expiration date**
   <a href="https://packagist.org/packages/cebugle/laravel-credit-card-validation">
       <img src="https://img.shields.io/packagist/dt/cebugle/laravel-credit-card-validation.svg?style=flat-square">
   </a>
-  <a href="https://twitter.com/DarkaOnLine">
-    <img src="http://img.shields.io/badge/author-@DarkaOnLine-blue.svg?style=flat-square">
+  <a href="https://twitter.com/dluague">
+    <img src="http://img.shields.io/badge/author-@dluague-blue.svg?style=flat-square">
   </a>
 </p>
 
