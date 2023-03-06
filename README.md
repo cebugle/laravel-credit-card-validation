@@ -26,7 +26,7 @@ This rule will validate that a given credit card **number**, **expiration date**
 ## Installation
 
 ```bash
-composer require cebugle/laravel-credit-card-validation
+composer require cebugle/laravel-credit-card-rule
 ```
 
 ## Usage
